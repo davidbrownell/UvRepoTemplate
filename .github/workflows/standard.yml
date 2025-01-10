@@ -1,0 +1,53 @@
+name: "Standard"
+
+run-name: ${{ github.run_number }} [${{ github.actor }}] on ${{ github.ref_name }}
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Once a day at 12am UTC
+  workflow_dispatch:
+
+# BugBug permissions: {}
+
+jobs:
+  # ----------------------------------------------------------------------
+  validate:
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          # BugBug - macos-latest
+          - ubuntu-latest
+          # BugBug - windows-latest
+
+        python_version:
+          - "3.13"
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          - "3.9"
+
+    name: Validate
+    runs-on: ${{ matrix.os }}
+
+    # BugBug permissions:
+    # BugBug   contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv and python
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - run: echo BugBug1
+      - run: echo BugBug2
+      - run: echo BugBug3
