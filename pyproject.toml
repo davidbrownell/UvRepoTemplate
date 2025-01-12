@@ -29,3 +29,5 @@ addopts = "--verbose -vv --capture=no --cov=uvrepotemplate"
 
 [tool.ruff]
 line-length = 110
+
+# BugBug: Configure ruff linter
