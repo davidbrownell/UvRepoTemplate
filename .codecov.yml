@@ -1,0 +1,14 @@
+codecov:
+  coverage:
+    range: 70..90
+
+    status:
+      project:
+      default:
+        target: auto
+        threshold: 0%
+
+
+# BugBug comment:
+# BugBug   layout: " diff, flags, files"
+# BugBug   hide_project_coverage: false
