@@ -1,0 +1,20 @@
+name: "[impl] Release"
+description: "Releases the current repository."
+
+runs:
+  using: composite
+  steps:
+    - name: BugBug One
+      run: echo Package '${{ env.PACKAGE_NAME }}'
+      shell: bash
+
+    - name: BugBug Two
+      run: echo Version '${{ env.PACKAGE_VERSION }}'
+      shell: bash
+
+
+    # BugBug: Create and upload signatures
+    # BugBug: Publish Python Package
+    # BugBug: Commit code coverage
+    # BugBug: Create tag
+    # BugBug: Create GitHub release

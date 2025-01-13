@@ -19,68 +19,62 @@ permissions: {}
 # BugBug: Invoke epilog scripts
 
 jobs:
-  # ----------------------------------------------------------------------
-  validate:
-    strategy:
-      fail-fast: false
+  # BugBug: https://github.com/orgs/community/discussions/11692#discussioncomment-2233606
 
-      matrix:
-        os:
-          - macos-latest
-          - ubuntu-latest
-          - windows-latest
 
-        python_version:
-          - "3.13"
-          - "3.12"
-          - "3.11"
-          - "3.10"
-
-    name: Validate
-    runs-on: ${{ matrix.os }}
-
-    permissions:
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install uv and python
-        uses: astral-sh/setup-uv@v5
-        with:
-          python-version: ${{ matrix.python_version }}
-          enable-cache: true
-
-      - name: Install Dependencies
-        run: uv sync
-
-      - name: Validate Formatting
-        run: uv run ruff format --check --verbose
-
-      - name: Validate Linting
-        run: uv run ruff check --verbose
-
-      # BugBug
-      - name: Validate Tests
-        run: uv run pytest
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-
-      # BugBug - name: Validate Tests
-      # BugBug   run: uv run pytest
-      # BugBug   env:
-      # BugBug     COVERAGE_FILE: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
-      # BugBug
-      # BugBug - name: Upload Coverage Data
-      # BugBug   uses: actions/upload-artifact@v4
-      # BugBug   with:
-      # BugBug     name: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
-      # BugBug     path: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
-      # BugBug     include-hidden-files: true
-
+  # BugBug # ----------------------------------------------------------------------
+  # BugBug validate:
+  # BugBug   strategy:
+  # BugBug     fail-fast: false
+  # BugBug
+  # BugBug     matrix:
+  # BugBug       os:
+  # BugBug         # BugBug - macos-latest
+  # BugBug         - ubuntu-latest
+  # BugBug         # BugBug - windows-latest
+  # BugBug
+  # BugBug       python_version:
+  # BugBug         - "3.13"
+  # BugBug         - "3.12"
+  # BugBug         - "3.11"
+  # BugBug         - "3.10"
+  # BugBug
+  # BugBug   name: Validate
+  # BugBug   runs-on: ${{ matrix.os }}
+  # BugBug
+  # BugBug   permissions:
+  # BugBug     contents: read
+  # BugBug
+  # BugBug   steps:
+  # BugBug     - uses: actions/checkout@v4
+  # BugBug
+  # BugBug     - name: Install uv and python
+  # BugBug       uses: astral-sh/setup-uv@v5
+  # BugBug       with:
+  # BugBug         python-version: ${{ matrix.python_version }}
+  # BugBug         enable-cache: true
+  # BugBug
+  # BugBug     - name: Install Dependencies
+  # BugBug       run: uv sync
+  # BugBug
+  # BugBug     - name: Validate Formatting
+  # BugBug       run: uv run ruff format --check --verbose
+  # BugBug
+  # BugBug     - name: Validate Linting
+  # BugBug       run: uv run ruff check --verbose
+  # BugBug
+  # BugBug     - name: Validate Tests
+  # BugBug       run: uv run pytest
+  # BugBug       env:
+  # BugBug         COVERAGE_FILE: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
+  # BugBug
+  # BugBug     - name: Upload Coverage Data
+  # BugBug       uses: actions/upload-artifact@v4
+  # BugBug       with:
+  # BugBug         name: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
+  # BugBug         path: .coverage.${{ matrix.os }}.${{ matrix.python_version }}
+  # BugBug         include-hidden-files: true
+  # BugBug
   # BugBug # ----------------------------------------------------------------------
   # BugBug package_coverage:
   # BugBug   needs: validate
@@ -127,7 +121,7 @@ jobs:
 
   # ----------------------------------------------------------------------
   python_package:
-    needs: validate # BugBug package_coverage
+    # BugBug needs: package_coverage
 
     name: Build Python Package
     runs-on: ubuntu-latest
@@ -176,49 +170,73 @@ jobs:
           name: python-package
           path: dist/**
 
+  # BugBug # ----------------------------------------------------------------------
+  # BugBug validate_python_package:
+  # BugBug   needs: python_package
+  # BugBug
+  # BugBug   strategy:
+  # BugBug     fail-fast: false
+  # BugBug
+  # BugBug     matrix:
+  # BugBug       os:
+  # BugBug         # BugBug - macos-latest
+  # BugBug         - ubuntu-latest
+  # BugBug         # BugBug - windows-latest
+  # BugBug
+  # BugBug       python_version:
+  # BugBug         - "3.13"
+  # BugBug         - "3.12"
+  # BugBug         - "3.11"
+  # BugBug         - "3.10"
+  # BugBug
+  # BugBug   name: Validate Python Package
+  # BugBug   runs-on: ${{ matrix.os }}
+  # BugBug
+  # BugBug   env:
+  # BugBug     PACKAGE_NAME: ${{ needs.python_package.outputs.package_name }}
+  # BugBug     PACKAGE_VERSION: ${{ needs.python_package.outputs.package_version }}
+  # BugBug
+  # BugBug   permissions: {}
+  # BugBug
+  # BugBug   steps:
+  # BugBug     - name: Install uv and python
+  # BugBug       uses: astral-sh/setup-uv@v5
+  # BugBug       with:
+  # BugBug         python-version: ${{ matrix.python_version }}
+  # BugBug         enable-cache: false
+  # BugBug
+  # BugBug     - name: Download Python Package
+  # BugBug       uses: actions/download-artifact@v4
+  # BugBug       with:
+  # BugBug         name: python-package
+  # BugBug         path: stage
+  # BugBug
+  # BugBug     - name: Install Python Package
+  # BugBug       run: uv pip install stage/${{ env.PACKAGE_NAME }}
+  # BugBug
+  # BugBug     - name: Validate Python Package
+  # BugBug       run: uv run python -c "import uvrepotemplate as package; assert package.__version__ == '${{ env.PACKAGE_VERSION }}', package.__version__"
+
   # ----------------------------------------------------------------------
-  validate_python_package:
-    needs: python_package
+  release:
+    needs: python_package # BugBug [python_package, validate_python_package]
 
-    strategy:
-      fail-fast: false
-
-      matrix:
-        os:
-          - macos-latest
-          - ubuntu-latest
-          - windows-latest
-
-        python_version:
-          - "3.13"
-          - "3.12"
-          - "3.11"
-          - "3.10"
-
-    name: Validate Python Package
-    runs-on: ${{ matrix.os }}
+    name: Release
+    runs-on: ubuntu-latest
 
     env:
       PACKAGE_NAME: ${{ needs.python_package.outputs.package_name }}
       PACKAGE_VERSION: ${{ needs.python_package.outputs.package_version }}
 
-    permissions: {}
-
     steps:
-      - name: Install uv and python
-        uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@v4
+
+      - name: Has Release Changes?
+        id: has_release_changes
+        uses: dorny/paths-filter@v3
         with:
-          python-version: ${{ matrix.python_version }}
-          enable-cache: false
+          filters: ./.github/release_sources.yaml
 
-      - name: Download Python Package
-        uses: actions/download-artifact@v4
-        with:
-          name: python-package
-          path: stage
-
-      - name: Install Python Package
-        run: uv pip install stage/${{ env.PACKAGE_NAME }}
-
-      - name: Validate Python Package
-        run: uv run python -c "import uvrepotemplate as package; assert package.__version__ == '${{ env.PACKAGE_VERSION }}', package.__version__"
+      - uses: ./.github/actions/release_impl
+        # BugBug if: ${{ github.envent_name == 'push' && github.ref == 'refs/heads/main' && steps.has_release_changes.outputs.src == 'true' }}
+        if: ${{ steps.has_release_changes.outputs.src == 'true' }}

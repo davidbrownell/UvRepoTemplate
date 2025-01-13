@@ -6,12 +6,15 @@
 __version__ = "0.1.0"
 
 
-def hello() -> str:
-    return "Hello from uvrepotemplate!"
-
-
 def Add(
     a: int,
     b: int,
 ) -> int:
     return a + b
+
+
+def Subtract(
+    a: int,
+    b: int,
+) -> int:
+    return a - b
