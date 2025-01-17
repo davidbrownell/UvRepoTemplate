@@ -29,9 +29,9 @@ jobs:
   # BugBug
   # BugBug     matrix:
   # BugBug       os:
-  # BugBug         # BugBug - macos-latest
+  # BugBug         - macos-latest
   # BugBug         - ubuntu-latest
-  # BugBug         # BugBug - windows-latest
+  # BugBug         - windows-latest
   # BugBug
   # BugBug       python_version:
   # BugBug         - "3.13"
@@ -179,9 +179,9 @@ jobs:
   # BugBug
   # BugBug     matrix:
   # BugBug       os:
-  # BugBug         # BugBug - macos-latest
+  # BugBug         - macos-latest
   # BugBug         - ubuntu-latest
-  # BugBug         # BugBug - windows-latest
+  # BugBug         - windows-latest
   # BugBug
   # BugBug       python_version:
   # BugBug         - "3.13"
