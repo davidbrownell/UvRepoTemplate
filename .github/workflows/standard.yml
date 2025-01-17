@@ -237,6 +237,7 @@ jobs:
         with:
           filters: ./.github/release_sources.yaml
 
-      - uses: ./.github/actions/release_impl
+      - name: Release
+        uses: ./.github/actions/release_impl
         # BugBug if: ${{ github.envent_name == 'push' && github.ref == 'refs/heads/main' && steps.has_release_changes.outputs.src == 'true' }}
         if: ${{ steps.has_release_changes.outputs.src == 'true' }}

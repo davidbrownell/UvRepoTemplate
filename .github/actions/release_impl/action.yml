@@ -12,6 +12,17 @@ runs:
       run: echo Version '${{ env.PACKAGE_VERSION }}'
       shell: bash
 
+    - name: Install uv and python
+      uses: astral-sh/setup-uv@v5
+
+    - name: Download Python Package
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package
+        path: dist
+
+    - name: BugBug
+      run: ls -al dist
 
     # BugBug: Create and upload signatures
     # BugBug: Publish Python Package
