@@ -25,7 +25,7 @@ dev = [
 path = "src/uvrepotemplate/__init__.py"
 
 [tool.pytest.ini_options]
-addopts = "--verbose -vv --capture=no --cov=uvrepotemplate"
+addopts = "--verbose -vv --capture=no --cov=uvrepotemplate --cov-fail-under=95.0"
 
 [tool.ruff]
 line-length = 110
