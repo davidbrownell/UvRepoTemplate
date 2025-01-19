@@ -249,7 +249,7 @@ jobs:
           filters: ./.github/release_sources.yaml
 
       - name: Release
-        if: ${{ github.envent_name == 'push' && github.ref == 'refs/heads/main' && steps.has_release_changes.outputs.src == 'true' }}
+        if: ${{ github.event.name == 'push' && github.ref == 'refs/heads/main' && steps.has_release_changes.outputs.src == 'true' }}
         uses: ./.github/actions/release_impl
         with:
           minisign_private_key: ${{ secrets.MINISIGN_PRIVATE_KEY }}
