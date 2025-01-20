@@ -1,34 +1,31 @@
 name: "[impl] Release"
 description: "Releases the current repository."
 
+# spell-checker: words jedisct, minisig, minisign, pypi, schneegans
+
 inputs:
   minisign_private_key:
     description: "Key used to sign dist artifacts. No signatures will be created if the key is empty."
     required: false
-    type: string
     default: ""
 
   pypi_public_token:
     description: "Token used to publish the package to PyPI."
     required: false
-    type: string
     default: ""
 
   coverage_badge_gist_token:
     description: "Gist token used to store the code coverage badge."
-    type: string
     default: ""
 
   coverage_badge_gist_id:
     description: "Gist ID used to store the code coverage badge."
     required: false
-    type: string
     default: ""
 
   coverage_badge_gist_username:
     description: "Gist username used to store the code coverage badge. The current GitHub user will be used if this value is not provided."
     required: false
-    type: string
     default: ""
 
 runs:
