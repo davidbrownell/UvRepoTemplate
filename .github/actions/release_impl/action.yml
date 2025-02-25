@@ -9,7 +9,7 @@ inputs:
     required: false
     default: ""
 
-  pypi_public_token:
+  pypi_publish_token:
     description: "Token used to publish the package to PyPI."
     required: false
     default: ""
@@ -102,10 +102,10 @@ runs:
     # Publish Python Package
     - name: Install uv and python
       uses: astral-sh/setup-uv@v5
-      if: ${{ inputs.pypi_public_token != '' }}
+      if: ${{ inputs.pypi_publish_token != '' }}
 
     - name: Publish Python Package
-      if: ${{ inputs.pypi_public_token != '' }}
+      if: ${{ inputs.pypi_publish_token != '' }}
       shell: bash
       run: |-
-        uv publish --token "${{ inputs.pypi_public_token }}" --verbose
+        uv publish --token "${{ inputs.pypi_publish_token }}" --verbose
