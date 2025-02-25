@@ -4,3 +4,4 @@
 additional_dependencies:
   - "../pyproject.toml"
   - "../README.md"
+  - "../uv.lock"
