@@ -9,8 +9,6 @@
 #
 __version__ = "0.1.0"
 
-# BugBug: Testing! 4
-
 
 def Add(
     a: int,
