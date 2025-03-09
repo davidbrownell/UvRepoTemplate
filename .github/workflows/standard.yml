@@ -16,7 +16,7 @@ on:
 permissions: {}
 
 # BugBug: Functionality to invoke callable workflows with matrix info...
-# BugBug: https://github.com/orgs/community/discussions/11692#discussioncomment-2233606
+#         https://github.com/orgs/community/discussions/11692#discussioncomment-10695858
 
 # BugBug: Invoke prolog scripts
 # BugBug: Invoke epilog scripts
@@ -146,7 +146,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
-          python-version: "3.10"
+          python-version: "3.10" # BugBug: Make variable
 
       - name: Install Dependencies
         run: uv sync --frozen
@@ -253,6 +253,6 @@ jobs:
         uses: ./.github/actions/release_impl
         with:
           minisign_private_key: ${{ secrets.MINISIGN_PRIVATE_KEY }}
-          pypi_public_token: ${{ secrets.PYPI_PUBLISH_TOKEN }}
+          pypi_publish_token: ${{ secrets.PYPI_PUBLISH_TOKEN }}
           coverage_badge_gist_token: ${{ secrets.COVERAGE_BADGE_GIST_TOKEN }}
-          coverage_badge_gist_id: 48391b195dedd43fcaa87d77130c3987
+          coverage_badge_gist_id: 48391b195dedd43fcaa87d77130c3987 # BugBug: make variable
