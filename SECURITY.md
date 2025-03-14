@@ -26,4 +26,4 @@ We commit to working with security researchers and the community to verify and a
 Thank you for helping us keep our project secure!
 
 ## Patches
-We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md). for information about contributions.
+We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributions.
