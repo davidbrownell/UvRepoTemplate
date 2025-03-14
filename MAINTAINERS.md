@@ -16,7 +16,7 @@ Maintainers are expected to:
 1. **Review and Merge Pull Requests:** Ensure that contributions are reviewed in a timely manner and merged if they meet the project's standards.
 2. **Issue Management:** Triage and respond to issues reported by the community. Prioritize and assign them as necessary.
 3. **Project Roadmap:** Help define and communicate the project's roadmap and key milestones.
-4. **Community Engagement:** Foster a positive and collaborative environment within the project's community. See [CONTRIBUTING.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CONTRIBUTING.md) for additional information.
+4. **Community Engagement:** Foster a positive and collaborative environment within the project's community. See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
 ## Contribution Process
 
@@ -30,7 +30,7 @@ To ensure a smooth contribution process, please follow these steps:
 
 ## Code of Conduct
 
-All contributors and maintainers are expected to adhere to the project's [CODE_OF_CONDUCT.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CODE_OF_CONDUCT.md). Please review it before participating in the project.
+All contributors and maintainers are expected to adhere to the project's [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Please review it before participating in the project.
 
 ## Getting Help
 

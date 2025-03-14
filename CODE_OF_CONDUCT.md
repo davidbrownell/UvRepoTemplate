@@ -14,7 +14,7 @@ These principles guide our data, product, and process decisions, architecture, a
 
 ## Community Guidelines
 
-Information on contributing to this repository is available in [CONTRIBUTING.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CONTRIBUTING.md).
+Information on contributing to this repository is available in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 When participating in this open source community's conversations and spaces, we ask individuals to follow the following guidelines:
 
@@ -27,7 +27,7 @@ When participating in this open source community's conversations and spaces, we 
 
 ## Enforcement Responsibilities
 
-[Project maintainers](https://github.com/davidbrownell/uvRepoTemplate/blob/main/MAINTAINERS.md) are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+[Project maintainers](MAINTAINERS.md) are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
 
 Project maintainers have the right and responsibility to remove, edit, or reject contributions, comments, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
 
