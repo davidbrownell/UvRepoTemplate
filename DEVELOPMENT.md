@@ -22,4 +22,4 @@
 ## Contributing Changes
 Pull requests are preferred, since they are specific. For more about how to create a pull request, see https://help.github.com/articles/using-pull-requests/.
 
-We recommend creating different branches for different (logical) changes, and creating a pull request into the `main` branch when you're done. See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
+We recommend creating different branches for different (logical) changes, and creating a pull request into the `main` branch when you're done. For more information on creating branches, please see https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/.
