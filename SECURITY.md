@@ -6,7 +6,7 @@ If you discover any security issues or vulnerabilities, please report them to us
 
 **How to report a security vulnerability:**
 
-1. **Contact:** Please use the [GitHub mechanism for privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability). Under the [main repository's security tab](https://github.com/davidbrownell/uvRepoTemplate/security), in the left sidebar, under "Reporting", click "Advisories", click the "New draft security advisory" button to open the advisory form.
+1. **Contact:** Please use the [GitHub mechanism for privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability). Under [this repository's security tab](https://github.com/davidbrownell/uvRepoTemplate/security), in the left sidebar, under "Reporting", click "Advisories", click the "New draft security advisory" button to open the advisory form.
 
 2. **Response Time:** We will acknowledge your report within 24 hours and provide an initial assessment within 48 hours.
 3. **Fixes:** Once the issue is confirmed, we will work to issue a fix as soon as possible and will keep you informed of our progress.

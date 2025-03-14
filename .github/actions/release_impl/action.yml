@@ -83,6 +83,7 @@ runs:
         echo "${{ inputs.minisign_private_key }}" > /tmp/minisign.key
 
         for filename in *; do
+          # BugBug: Use https://github.com/x13a/py-minisign (Need to verify using same algorithm)
           docker run -i --rm -v /tmp:/host/key -v .:/host/content jedisct1/minisign -S -m "/host/content/${filename}" -s /host/key/minisign.key -t "${filename}" -t "${{ env.PACKAGE_NAME }} v${{ env.PACKAGE_VERSION }}" -x "/host/content/${filename}.minisig"
         done
 
