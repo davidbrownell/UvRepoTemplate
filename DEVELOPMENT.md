@@ -1,0 +1,20 @@
+# Local Development
+
+## Enlistment
+
+| Step | Command Line | Additional Information |
+| --- | --- | --- |
+| 1. Clone the repository locally. | `git clone https://github.com/davidbrownell/uvRepoTemplate` | https://git-scm.com/docs/git-clone |
+| 2. Install [uv](https://github.com/astral-sh/uv). | `curl -LsSf https://astral.sh/uv/install.sh \| sh` on macOS and Linux or <br/>`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` on Windows | https://docs.astral.sh |
+| 3. Install dependencies. | `uv sync` | https://docs.astral.sh/uv/concepts/projects/sync |
+
+## Development Activities
+
+| Activity | Command Line | Description | Invoked by Continuous Integration |
+| --- | --- | --- | :-: |
+| Code Formatting | `uv run ruff format` or<br>`uv run ruff format --check` | Format source code using [ruff](https://github.com/astral-sh/ruff) based on settings in `pyproject.toml`. | :white_check_mark: |
+| Static Code Analysis | `uv run ruff check` | Validate source code using [ruff](https://github.com/astral-sh/ruff) based on settings in `pyproject.toml`. | :white_check_mark: |
+| Automated Testing | `uv run pytest` or<br/>`uv run pytest --no-cov` | Run automated tests using [pytest](https://docs.pytest.org/) and extract code coverage using [coverage](https://coverage.readthedocs.io/) based on settings in `pyproject.toml`. | :white_check_mark: |
+| Semantic Version Generation | `uv run python -m AutoGitSemVer.scripts.UpdatePythonVersion ./src/uvrepotemplate/__init__.py ./src` | Generate a new [Semantic Version](https://semver.org/) based on git commits using [AutoGitSemVer](https://github.com/davidbrownell/AutoGitSemVer). Version information is stored in `src/uvrepotemplate/__init__.py`. | :white_check_mark: |
+| Python Package Creation | `uv build` | Create a python package using [uv](https://github.com/astral-sh/uv) based on settings in `pyproject.toml`. | :white_check_mark: |
+| Python Package Publishing | `uv publish` | Publish a python package to [PyPi](https://pypi.org/) using [uv](https://github.com/astral-sh/uv) based on settings in `pyproject.toml`. | :white_check_mark: |
