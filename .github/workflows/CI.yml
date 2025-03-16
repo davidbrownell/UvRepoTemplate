@@ -1,4 +1,4 @@
-name: "Standard"
+name: "CI"
 
 run-name: ${{ github.run_number }} [${{ github.actor }}] on ${{ github.ref_name }}
 
@@ -18,8 +18,7 @@ permissions: {}
 # BugBug: Functionality to invoke callable workflows with matrix info...
 #         https://github.com/orgs/community/discussions/11692#discussioncomment-10695858
 
-# BugBug: Invoke prolog scripts
-# BugBug: Invoke epilog scripts
+# BugBug: Move the contents of most of this file to an impl file, and then call that impl file from another with the customizable parameters
 
 jobs:
   # ----------------------------------------------------------------------
