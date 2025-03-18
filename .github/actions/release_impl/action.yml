@@ -84,6 +84,7 @@ runs:
 
         for filename in *; do
           # BugBug: Use https://github.com/x13a/py-minisign (Need to verify using same algorithm)
+          # BugBug: Save information about keys
           docker run -i --rm -v /tmp:/host/key -v .:/host/content jedisct1/minisign -S -m "/host/content/${filename}" -s /host/key/minisign.key -t "${filename}" -t "${{ env.PACKAGE_NAME }} v${{ env.PACKAGE_VERSION }}" -x "/host/content/${filename}.minisig"
         done
 
@@ -99,6 +100,7 @@ runs:
       shell: bash
       run: |-
         gh release create "v${{ env.PACKAGE_VERSION }}" ./dist/* --generate-notes
+        # BugBug: Add link to release in output
 
     # Publish Python Package
     - name: Install uv and python
@@ -110,3 +112,4 @@ runs:
       shell: bash
       run: |-
         uv publish --token "${{ inputs.pypi_publish_token }}" --verbose
+        # BugBug: Add link to published content
