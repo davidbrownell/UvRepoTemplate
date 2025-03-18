@@ -75,8 +75,9 @@ runs:
           username="${{ github.repository_owner }}"
         fi
 
-        echo "**Code Coverage Badge:** [![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/${username}/${{ inputs.coverage_badge_gist_id }}/raw/${{ github.event.repository.name }}_code_coverage.json)](${{ github.server_url }}/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions)" >> $GITHUB_STEP_SUMMARY
-        echo "**Code Coverage Badge Markdown:** <code>\[!\[Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/${username}/${{ inputs.coverage_badge_gist_id }}/raw/${{ github.event.repository.name }}_code_coverage.json)](${{ github.server_url }}/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions)</code>" >> $GITHUB_STEP_SUMMARY
+        echo "**Code Coverage:** >> $GITHUB_STEP_SUMMARY
+        echo "- Badge: [![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/${username}/${{ inputs.coverage_badge_gist_id }}/raw/${{ github.event.repository.name }}_code_coverage.json)](${{ github.server_url }}/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions)" >> $GITHUB_STEP_SUMMARY
+        echo "- Badge Markdown: <code>\[!\[Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/${username}/${{ inputs.coverage_badge_gist_id }}/raw/${{ github.event.repository.name }}_code_coverage.json)](${{ github.server_url }}/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions)</code>" >> $GITHUB_STEP_SUMMARY
 
     # Sign artifacts
     - name: Sign Artifacts
@@ -108,7 +109,6 @@ runs:
       shell: bash
       run: |-
         gh release create "v${{ env.PACKAGE_VERSION }}" ./dist/* --generate-notes
-        # BugBug: Add link to release in output
 
     # Publish Python Package
     - name: Install uv and python
@@ -120,4 +120,3 @@ runs:
       shell: bash
       run: |-
         uv publish --token "${{ inputs.pypi_publish_token }}" --verbose
-        # BugBug: Add link to published content
