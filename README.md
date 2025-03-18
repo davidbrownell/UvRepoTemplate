@@ -49,7 +49,7 @@ Additional information can be found at these locations.
 | Title | Document | Description |
 | --- | --- | --- |
 | Code of Conduct | [CODE_OF_CONDUCT.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CODE_OF_CONDUCT.md) | Information about the norms, rules, and responsibilities we adhere to when participating in this open source community. |
-| Contributing | [CONTRIBUTING.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CONTRIBUTING.md) | BugBug |
+| Contributing | [CONTRIBUTING.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CONTRIBUTING.md) | Information about contributing to this project. |
 | Development | [DEVELOPMENT.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/DEVELOPMENT.md) | Information about development activities involved in making changes to this project. |
 | Governance | [GOVERNANCE.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/GOVERNANCE.md) | Information about how this project is governed. |
 | Maintainers | [MAINTAINERS.md](https://github.com/davidbrownell/uvRepoTemplate/blob/main/MAINTAINERS.md) | Information about individuals who maintain this project. |

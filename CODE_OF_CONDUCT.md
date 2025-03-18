@@ -14,7 +14,7 @@ These principles guide our data, product, and process decisions, architecture, a
 
 ## Community Guidelines
 
-Information on contributing to this repository is available in [CONTRIBUTING.md](CONTRIBUTING.md).
+Information on contributing to this project is available in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 When participating in this open source community's conversations and spaces, we ask individuals to follow the following guidelines:
 
