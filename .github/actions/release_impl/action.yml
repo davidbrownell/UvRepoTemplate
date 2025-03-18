@@ -31,6 +31,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Install uv and python
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: false
+
     - name: Download Python Package
       uses: actions/download-artifact@v4
       with:
@@ -80,13 +85,16 @@ runs:
       run: |-
         pushd dist
 
+        echo "**Signed Artifacts:**" >> $GITHUB_STEP_SUMMARY
+
         echo "${{ inputs.minisign_private_key }}" > /tmp/minisign.key
 
         for filename in *; do
-          # BugBug: Use https://github.com/x13a/py-minisign (Need to verify using same algorithm)
-          # BugBug: Save information about keys
-          docker run -i --rm -v /tmp:/host/key -v .:/host/content jedisct1/minisign -S -m "/host/content/${filename}" -s /host/key/minisign.key -t "${filename}" -t "${{ env.PACKAGE_NAME }} v${{ env.PACKAGE_VERSION }}" -x "/host/content/${filename}.minisig"
+          echo "- ${filename} [${filename}.minisig]" >> $GITHUB_STEP_SUMMARY
+          uv run --with py-minisign python -c "import minisign; minisign.SecretKey.from_file('/tmp/minisign.key').sign_file('${filename}', trusted_comment='${{ env.PACKAGE_NAME }} v${{ env.PACKAGE_VERSION }}', drop_signature=True)"
         done
+
+        rm /tmp/minisign.key
 
     - name: Upload Signatures
       if: ${{ inputs.minisign_private_key != '' }}
