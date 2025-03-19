@@ -34,11 +34,11 @@ TODO: Complete this section
 | Via [pip](https://pip.pypa.io/en/stable/) | `pip install uvrepotemplate` |
 
 ### Verifying Signed Artifacts
-Artifacts are signed and validated using [py-minisign](https://github.com/x13a/py-minisign) and the public key `\nRWREcaTucMl3IhymqTtoRV4joxXzNf71yqGWnU+/BL9MTAYQIKgOfkpM`.
+Artifacts are signed and validated using [py-minisign](https://github.com/x13a/py-minisign) and the public key in the file `./minisign_key.pub`.
 
 To verify that an artifact is valid, visit [the latest release](https://github.com/davidbrownell/UvRepoTemplate/releases/latest) and download the `.minisign` signature file that corresponds to the artifact. Then run the following command, replacing `<filename>` with the name of the artifact to be verified:
 
-`uv run --with py-minisign python -c "import minisign; minisign.PublicKey.from_bytes(b'\nRWREcaTucMl3IhymqTtoRV4joxXzNf71yqGWnU+/BL9MTAYQIKgOfkpM').verify_file('<filename>')"`
+`uv run --with py-minisign python -c "import minisign; minisign.PublicKey.from_file('minisign_key.pub').verify_file('<filename>')"`
 
 ## Development
 Please visit [Contributing](https://github.com/davidbrownell/uvRepoTemplate/blob/main/CONTRIBUTING.md) and [Development](https://github.com/davidbrownell/uvRepoTemplate/blob/main/DEVELOPMENT.md) for information on contributing to this project.
