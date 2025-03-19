@@ -1,4 +1,4 @@
-name: "[Callable] CI"
+name: "[Callable] CI+CD Workflow Impl"
 
 on:
   workflow_call:
@@ -61,14 +61,8 @@ jobs:
           python-version: ${{ matrix.python_version }}
           enable-cache: true
 
-      - name: Install Dependencies
-        run: uv sync --frozen
-
-      - name: Validate Formatting
-        run: uv run ruff format --check --verbose
-
-      - name: Validate Linting
-        run: uv run ruff check --verbose
+      - name: Run pre-commit scripts
+        run: uv run pre-commit run --verbose
 
       - name: Validate Tests
         run: uv run pytest
@@ -208,7 +202,8 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: ${{ matrix.python_version }}
-          enable-cache: false
+          enable-cache: false # No uv.lock or requirements.txt files, so nothing to cache on
+          ignore-empty-workdir: true
 
       - name: Download Python Package
         uses: actions/download-artifact@v4

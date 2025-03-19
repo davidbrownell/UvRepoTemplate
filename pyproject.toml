@@ -40,6 +40,7 @@ dev = [
     "pytest>=8.3.4",
     "ruff>=0.9.0",
     "autogitsemver>=0.7.8",
+    "pre-commit>=4.2.0",
 ]
 
 [tool.hatch.version]
@@ -63,7 +64,9 @@ ignore = [
     "COM812", # Trailing comma missing
     "D202", # No blank lines allowed after function docstring
     "E501", # Line too long
+    "I001", # Import block is un-sorted or un-formatted
     "N802", # Function name `xxx` should be lowercase
+    "N999", # Invalid module name
     "S101", # Use of assert detected
     "UP032", # Use f-string instead of `format` call
 ]
