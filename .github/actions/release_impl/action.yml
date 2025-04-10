@@ -34,7 +34,7 @@ runs:
     - name: Install uv and python
       uses: astral-sh/setup-uv@v5
       with:
-        enable-cache: false
+        enable-cache: false # No uv.lock or requirements.txt files, so nothing to cache on
 
     - name: Download Python Package
       uses: actions/download-artifact@v4
@@ -110,10 +110,6 @@ runs:
         gh release create "v${{ env.PACKAGE_VERSION }}" ./dist/* --generate-notes
 
     # Publish Python Package
-    - name: Install uv and python
-      uses: astral-sh/setup-uv@v5
-      if: ${{ inputs.pypi_publish_token != '' }}
-
     - name: Publish Python Package
       if: ${{ inputs.pypi_publish_token != '' }}
       shell: bash
