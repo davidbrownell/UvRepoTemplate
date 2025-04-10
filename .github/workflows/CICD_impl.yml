@@ -23,6 +23,11 @@ on:
         description: "The ID of the Gist used to store coverage badge information. Code coverage information will not be persisted if this value is missing."
         required: false
 
+      coverage_badge_gist_username:
+        type: string
+        description: "The username used to access the Gist used to store coverage badge information. The current GitHub user will be used if this value is not provided."
+        required: false
+
     secrets:
       MINISIGN_PRIVATE_KEY:
         required: false
@@ -250,3 +255,4 @@ jobs:
           pypi_publish_token: ${{ secrets.PYPI_PUBLISH_TOKEN }}
           coverage_badge_gist_token: ${{ secrets.COVERAGE_BADGE_GIST_TOKEN }}
           coverage_badge_gist_id: ${{ inputs.coverage_badge_gist_id }}
+          coverage_badge_gist_username: ${{ inputs.coverage_badge_gist_username }}
